@@ -2,7 +2,7 @@ name: Iris classification Deploy
 
 on: 
   push:
-    branches: [main]
+    branches: [main, master]
   workflow_dispatch:
 
 jobs: 
