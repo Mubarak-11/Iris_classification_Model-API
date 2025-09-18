@@ -1,0 +1,13 @@
+version: "3.10"
+
+services:
+  Iris:
+      build: 
+        context: . #folder where dockerfile is
+        dockerfile: Dockerfile
+      image: iris-api
+      pull_policy: never
+      container_name: iris-api-container 
+      ports:
+        - 8888:8000     #host:container
+      restart: unless-stopped   #optional, keep it running
