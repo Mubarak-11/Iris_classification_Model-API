@@ -38,9 +38,9 @@ datasets/
 checkpoints/
 artifacts/
 models/
-*.pt
-*.pth
-*.pkl
+#*.pt
+#*.pth
+#*.pkl
 *.h5
 
 # -----------------------
