@@ -68,5 +68,5 @@ jobs:
               file: ./Dockerfile
               push: true
               tags: |
-                grhc.io/${{github.repository_owner}}/iris-api:latest
+                grhc.io/${{github.repository_owner}}/Iris_classification_Model-API:latest
                 grc.io/${{github.repository_owner}}/iris-api:${{github.sha}}
