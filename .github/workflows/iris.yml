@@ -67,7 +67,7 @@ jobs:
               context: .
               file: ./Dockerfile
               push: true
-              tags: |
-                ghcr.io/${{ github.repository_owner }}/iris_classification_model-api:latest
-                ghcr.io/${{ github.repository_owner }}/iris_classification_model-api:${{ github.sha }}
+              tags: | 
+                 ghcr.io/mubarak-11/iris_classification_model-api:latest
+                 ghcr.io/mubarak-11/iris_classification_model-api:${{ github.sha }}
 
