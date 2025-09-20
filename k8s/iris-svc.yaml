@@ -1,0 +1,14 @@
+#Goal of this yaml file is to give me stable address/port to reach whatever pods are alive right now
+apiVersion: v1
+kind: Service
+metadata:
+  name: iris-api
+  namespace: iris
+spec:
+  selector:
+    app: iris-api
+  ports:
+  - port: 8000 #service port
+    targetPort: 8000 #containerPort in the pod
+    protocol: TCP
+  type: NodePort

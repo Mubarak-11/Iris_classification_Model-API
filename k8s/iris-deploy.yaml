@@ -1,0 +1,38 @@
+#Goal of this yaml file is to define deployment (manages the pods running our containers)
+kind: Deployment
+metadata:
+  name: iris-api
+  namespace: iris
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: iris-api
+  template:
+    metadata:
+      labels:
+        app: iris-api
+    spec:
+      containers:
+        - name: iris-api
+          # if you used `minikube image load $IMAGE`, keep the same tag here
+          image: ghcr.io/mubarak-11/iris_classification_model-api:latest
+          imagePullPolicy: IfNotPresent   # important when preloading with minikube
+          ports:
+            - containerPort: 8000
+          env:
+            - name: MODEL_IRIS_PATH
+              value: /app/iris_model_weights.pkl
+          readinessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            initialDelaySeconds: 5
+            periodSeconds: 5
+          livenessProbe:
+            httpGet:
+              path: /healthz
+              port: 8000
+            initialDelaySeconds: 10
+            periodSeconds: 10
+        
