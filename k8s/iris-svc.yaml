@@ -12,3 +12,4 @@ spec:
     targetPort: 8000 #containerPort in the pod
     protocol: TCP
   type: NodePort
+

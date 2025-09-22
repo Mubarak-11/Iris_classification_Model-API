@@ -1,4 +1,5 @@
 #Goal of this yaml file is to define deployment (manages the pods running our containers)
+apiVersion: apps/v1
 kind: Deployment
 metadata:
   name: iris-api
@@ -25,13 +26,13 @@ spec:
               value: /app/iris_model_weights.pkl
           readinessProbe:
             httpGet:
-              path: /healthz
+              path: /health
               port: 8000
             initialDelaySeconds: 5
             periodSeconds: 5
           livenessProbe:
             httpGet:
-              path: /healthz
+              path: /health
               port: 8000
             initialDelaySeconds: 10
             periodSeconds: 10
