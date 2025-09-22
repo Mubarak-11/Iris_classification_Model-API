@@ -48,7 +48,8 @@ def debug_files():
 
 @app.get("/health")
 def health():
-    ok = all(os.getenv("MODEL_IRIS_PATH", "iris_model_weights.pkl"))
+    path = os.getenv("MODEL_IRIS_PATH", "iris_model_weights.pkl")
+    ok = os.path.exists(path)
     return {"ok": bool(ok), "model_version": MODEL_IRIS_VER}
 
 
